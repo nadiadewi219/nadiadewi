@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Jquery Pertama</title>  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+  <!-- Paragraf 1 -->
+  <p id="paragraf">selamat datang di website KITA BERDUA GUYS</p>
+
+  <!-- Paragraf 2 -->
+  <p id="paragraf2" style="display: none;">Kita adalah dua besti yang lucu imut kiyut</p>
+
+  <!-- Tombol Sembunyikan -->
+  <button id="tombol">Klik Saya</button>
+
+  <!-- Tombol Tampilkan -->
+  <button id="tombol2">Tampilkan Paragraf</button>
+
+  <!-- ✅ Tombol Tukar Posisi -->
+  <button id="tukar">Tukar Posisi Paragraf</button>
+
+  <script>
+    $(document).ready(function () {
+      // Tombol sembunyikan
+      $("#tombol").click(function () {
+        $("#paragraf").hide();
+        $("#paragraf2").hide();
+      });
+
+      // Tombol tampilkan
+      $("#tombol2").click(function () {
+        $("#paragraf").fadeIn("slow");
+        $("#paragraf2").fadeIn("slow");
+      });
+
+      // ✅ Tombol tukar posisi
+      $("#tukar").click(function () {
+        var p1 = $("#paragraf");
+        var p2 = $("#paragraf2");
+
+        // Pindahkan p1 setelah p2, atau sebaliknya
+        if (p1.next()[0] === p2[0]) {
+          p2.after(p1); // p1 dipindah ke bawah p2
+        } else {
+          p1.after(p2); // p2 dipindah ke bawah p1
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
